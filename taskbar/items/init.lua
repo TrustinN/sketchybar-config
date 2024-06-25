@@ -1,0 +1,7 @@
+require("taskbar.items.apple")
+require("taskbar.items.menus")
+require("taskbar.items.spaces")
+require("taskbar.items.front_app")
+require("taskbar.items.calendar")
+require("taskbar.items.widgets")
+require("taskbar.items.media")

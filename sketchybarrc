@@ -1,0 +1,9 @@
+#!/usr/bin/env lua
+
+-- Load the sketchybar-package and prepare the helper binaries
+require("taskbar.helpers")
+require("taskbar")
+-- require("dock.helpers")
+-- require("dock")
+-- require("mwe.helpers")
+-- require("mwe")
