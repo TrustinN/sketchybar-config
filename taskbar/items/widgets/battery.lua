@@ -16,7 +16,7 @@ local battery = sbar.add("item", "widgets.battery", {
       font = { family = settings.font.numbers }
   },
   update_freq = 180,
-  popup = { align = "center" }
+  popup = { align = "center", horizontal = true, }
 })
 
 local battery_bracket = sbar.add("bracket", "widgets.battery.bracket", { battery.name }, {
@@ -31,17 +31,18 @@ sbar.add("item", "widgets.battery.padding", {
   width = settings.group_paddings
 })
 
+sbar.add("item", {
+  position = "popup." .. battery.name,
+  label = { string = "Time Remaining: ", font = { style = "bold" } }
+
+})
+
 local remaining_time = sbar.add("item", {
   position = "popup." .. battery.name,
-  icon = {
-    string = "Time remaining:",
-    width = 100,
-    align = "left"
-  },
   label = {
     string = "??:??h",
-    width = 100,
-    align = "right"
+    align = "right",
+    font = { style = "bold" }
   },
 })
 

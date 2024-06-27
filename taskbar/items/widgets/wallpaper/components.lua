@@ -1,6 +1,5 @@
 local colors = require("taskbar.colors")
 local settings = require("taskbar.settings")
-local globals = require("taskbar.items.widgets.wallpaper.globals")
 
 local components = {}
 
@@ -84,7 +83,7 @@ local function genEntries(dir, name, pos, entryTbl)
     entryTbl["OPT_SELECTED"] = 1
 
     local count = 0
-    for file in io.popen("ls " .. dir .. " | grep ."):lines() do
+    for file in io.popen("ls \"" .. dir .. "\" | grep ."):lines() do
         count = count + 1
         local optName = name .. "." .. file
         local filePath = dir .. "/" .. file
@@ -94,7 +93,10 @@ local function genEntries(dir, name, pos, entryTbl)
             position = "popup." .. pos,
             drawing = count < 5 and true or false,
             popup = { align = "right", drawing = false },
-            label = { string = file },
+            label = {
+                string = file,
+                font = "SF Pro:Semibold:11.0",
+            },
         })
 
         if string.find(file, "%.") then
